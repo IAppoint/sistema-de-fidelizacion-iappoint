@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>IAppoint</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            background-color: #1a1a1a;
+            cursor: url('futuristic-cursor.png'), auto;
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .box-video {
+            max-width: 1200px;
+            margin: auto;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .box-video h1 {
+            font-size: 2rem;
+            line-height: 1.2;
+            margin: 0;
+            color: white;
+            padding: 10px 15px;
+            display: inline-block;
+            border-radius: 5px;
+            max-width: 90%;
+            background: linear-gradient(270deg, #daa6fb, rgba(218, 166, 251, 0) 94.48%);
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+            margin-inline: -6px;
+            border-radius: 0 50px 50px 0;
+        }
+
+        .box-video iframe {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 56.2500%;
+            border: none;
+            box-shadow: 0 2px 8px 0 rgba(63, 69, 81, 0.16);
+            border-radius: 8px;
+            margin-top: 1.6em;
+            margin-bottom: 0.9em;
+        }
+
+        .pulse-button {
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 6px white;
+            cursor: pointer;
+            animation: pulse 1s infinite;
+            margin-top: 20px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .whatsa-img {
+            position: absolute;
+            opacity: 0.5;
+            pointer-events: none;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+            animation: move 20s linear infinite;
+        }
+
+        .whatsa-img:nth-of-type(1) {
+            top: 10%;
+            left: 10%;
+            width: 200px;
+            height: auto;
+            animation-duration: 25s;
+        }
+
+        .whatsa-img:nth-of-type(2) {
+            top: 30%;
+            left: 50%;
+            width: 150px;
+            height: auto;
+            animation-duration: 30s;
+        }
+
+        .whatsa-img:nth-of-type(3) {
+            top: 50%;
+            left: 80%;
+            width: 100px;
+            height: auto;
+            animation-duration: 35s;
+        }
+
+        .whatsa-img:nth-of-type(4) {
+            top: 70%;
+            left: 20%;
+            width: 250px;
+            height: auto;
+            animation-duration: 40s;
+        }
+
+        .whatsa-img:nth-of-type(5) {
+            top: 90%;
+            left: 60%;
+            width: 180px;
+            height: auto;
+            animation-duration: 45s;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(100vw, 100vh);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .box-video h1 {
+                font-size: 2.5rem;
+                max-width: 60%;
+            }
+        }
+
+        .producto {
+            display: none;
+            text-align: left;
+            padding: 20px;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            margin: auto;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .producto h2 {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .producto ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .producto li {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: white;
+            display: flex;
+            align-items: center;
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .producto li i {
+            color: #00a884;
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .producto img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .banner {
+            position: absolute;
+            top: 150px;
+            right: -42px;
+            background-color: #ff5a5f;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transform: rotate(45deg);
+            transform-origin: top right;
+            width: 227px;
+            text-align: center;
+        }
+
+        .pack {
+            display: none;
+            overflow-x: hidden;
+            padding: 20px;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 800px;
+            position: relative;
+        }
+
+        .pack div {
+            flex: 0 0 auto;
+            margin-right: 20px;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .pack div h2 {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .pack div p {
+            font-size: 1.2rem;
+            color: white;
+            background-color: red;
+            border-radius: 10px;
+            font-weight: 600;
+            padding: 5px;
+        }
+
+        .pack div img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .scrolling {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+
+        .bonus-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #1a1a1a;
+    color: white;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bonus-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bonus {
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    max-width: 360px;
+    flex: 1 1 calc(100% - 40px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bonus h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.bonus .bonus-title {
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.bonus .bonus-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bonus .bonus-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.bonus ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.bonus li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.bonus li i {
+    color: #00a884;
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .bonus {
+        flex: 1 1 calc(50% - 40px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .bonus {
+        flex: 1 1 calc(33.333% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .producto li {
+        font-size: 18px;
+    }
+}
+
+
+.garantias-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.garantias-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.garantias-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.garantias-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.garantias-text {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c2c2c;
+    color: white;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+    </style>
+</head>
+
+<body>
+    <section class="video">
+        <div class="box-video">
+            <h1>Descubre Nuestro Sistema de Fidelización Para Negocios Locales</h1>
+            <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+                border-radius: 8px; will-change: transform;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGMhV-mh44&#x2F;cT11oJIYLm3DtTCw_zZo3g&#x2F;watch?embed"
+                    allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+            <button class="pulse-button">Acceder al Sistema de Fidelización IAppoint</button>
+        </div>
+    </section>
+
+    <section class="producto" id="productoSection">
+        <div class="banner">Por Sólo 299€</div>
+        <h2>Que Te Incluye</h2>
+        <ul>
+            <li><i class="fas fa-check-circle"></i>Nuestra Plataforma IAppoint</li>
+            <li><i class="fas fa-check-circle"></i>Automatizaciones Whatsapp</li>
+            <li><i class="fas fa-check-circle"></i>Mensajes Personalizados</li>
+            <li><i class="fas fa-check-circle"></i>Cartel Luminoso Tamaño A4</li>
+            <li><i class="fas fa-check-circle"></i>5 Diseños Únicos Para Tu Negocio</li>
+            <li><i class="fas fa-check-circle"></i>Plantilla de Mensajes Probados Para Tu Negocio</li>
+            <li><i class="fas fa-check-circle"></i>Landing de Registro para Aumentar Tus Bases de Datos</li>
+            <li><i class="fas fa-check-circle"></i>Grupo de Whatsapp Con Consultor Estratégico</li>
+            <li><i class="fas fa-check-circle"></i>2 Campañas realizadas por Nosotros</li>
+        </ul>
+        <img src="packia.png" alt="Pack IAppoint">
+    </section>
+
+    <section class="pack">
+        <div class="scrolling">
+            <div>
+                <h2>Acceso a la Plataforma</h2>
+                <img src="iaplatform.png" alt="Acceso a la Plataforma">
+                <p>Valorado en 99€/Mes</p>
+            </div>
+            <div>
+                <h2>Formación Whatsapp Marketing</h2>
+                <img src="formacionwhatsapp.png" alt="Formación Whatsapp Marketing">
+                <p>Valorado en 497€</p>
+            </div>
+            <div>
+                <h2>Cartel Luminoso A4</h2>
+                <img src="cartelia.png" alt="Cartel Luminoso A4">
+                <p>Valorado en 75€</p>
+            </div>
+            <div>
+                <h2>Grupo De Whatsapp con Consultor</h2>
+                <img src="grupoiappoint.png" alt="Grupo De Whatsapp con Consultor">
+                <p>Valorado en 299€</p>
+            </div>
+            <div>
+                <h2>Chatbot IA en Whatsapp</h2>
+                <img src="chatbotia.png" alt="Chatbot IA en Whatsapp">
+                <p>Valorado en 299€</p>
+            </div>
+            <div>
+                <h2>5 Diseños Impreso</h2>
+                <img src="diseia.png" alt="5 Diseños Impreso">
+                <p>Valorado en 75€</p>
+            </div>
+            <div>
+                <h2>Plantilla de Mensajes Personalizados</h2>
+                <img src="mensajes.png" alt="Plantilla de Mensajes Personalizados">
+                <p>Valorado en 50€</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bonus-section">
+        <div class="bonus">
+            <div class="bonus-title" style="background-color: yellow;">#1 Bonus - IA Whatsapp</div>
+            <div class="bonus-content">
+                <ul>
+                    <li><i class="fas fa-check-circle"></i>Responde</li>
+                    <li><i class="fas fa-check-circle"></i>Asesora</li>
+                    <li><i class="fas fa-check-circle"></i>Agenda y Redirige al Encargado</li>
+                </ul>
+                <img src="chatbotia.png" alt="IA Whatsapp">
+            </div>
+        </div>
+        <div class="bonus">
+            <div class="bonus-title" style="background-color: orange;">#2 Bonus - 2 Diseños al Mes</div>
+            <div class="bonus-content">
+                <ul>
+                    <li><i class="fas fa-check-circle"></i>Estaremos en Contacto para Crear 2 Diseño Impresos al Mes</li>
+                    <li><i class="fas fa-check-circle"></i>Una Landing personalizada</li>
+                </ul>
+                <img src="diseia.png" alt="2 Diseños al Mes">
+            </div>
+        </div>
+        <div class="bonus">
+            <div class="bonus-title" style="background-color: green;">#3 Bonus - Curso Whatsapp</div>
+            <div class="bonus-content">
+                <ul>
+                    <li><i class="fas fa-check-circle"></i>Lecciones y Prácticas Reales</li>
+                    <li><i class="fas fa-check-circle"></i>Comunidad de Whatsapp</li>
+                    <li><i class="fas fa-check-circle"></i>Directos Privados</li>
+                </ul>
+                <img src="formacionwhatsapp.png" alt="Curso Whatsapp">
+            </div>
+        </div>
+    </section>
+    <section class="garantias-section">
+        <h2>Garantías</h2>
+        <div class="garantias-container">
+            <img src="garantias.png" alt="Garantías">
+        </div>
+        <p class="garantias-text">Sin Preguntas</p>
+    </section>
+
+    <footer>
+        <p>© 2024 I-APPOINT LLC</p>
+        <p>EIN: 61-2158009</p>
+        <p>30 N GOULD ST STE R SHERIDAN, WY 82801</p>
+        <p>Este sitio web no es una página de Facebook.</p>
+    </footer>
+
+    <img src="whatsa.webp" class="whatsa-img" style="top: 10%; left: 20%; width: 200px;" />
+    <img src="whatsa.webp" class="whatsa-img" style="top: 30%; left: 40%; width: 150px;" />
+    <img src="whatsa.webp" class="whatsa-img" style="top: 50%; left: 70%; width: 100px;" />
+    <img src="whatsa.webp" class="whatsa-img" style="top: 70%; left: 30%; width: 250px;" />
+    <img src="whatsa.webp" class="whatsa-img" style="top: 90%; left: 50%; width: 180px;" />
+
+    <script>
+      window.onload = function () {
+    // Initially hide the sections
+    document.getElementById('productoSection').style.display = 'none';
+    document.querySelector('.pack').style.display = 'none';
+    document.querySelector('.bonus-section').style.display = 'none';
+
+    // Show the sections after 20 seconds
+    setTimeout(function () {
+        document.getElementById('productoSection').style.display = 'block';
+        document.querySelector('.pack').style.display = 'flex';
+        document.querySelector('.bonus-section').style.display = 'flex';
+    }, 100000);
+}
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.pulse-button').addEventListener('click', function() {
+        window.location.href = 'https://buy.stripe.com/dR6cOa8KL2RC6R24gQ';
+    });
+});
+
+    </script>
+</body>
+
+</html>
